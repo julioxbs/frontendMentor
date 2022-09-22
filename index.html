@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="./public/favicon-32x32.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
+  <title>Notifications page</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body class="font-jakarta font-medium">
+  <main class="p-4">
+    <div class="max-w-[720px] w-full bg-white mx-auto p-6 rounded shadow-md">
+      <!-- TOP -->
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+        <div class="flex items-center gap-2">
+          <h1 class="font-extrabold text-[#1c202b] text-2xl">Notifications</h1>
+          <span id="count" class="bg-[#0E3274] text-white font-extrabold w-6 h-6 rounded flex items-center justify-center">3</span>
+        </div>
+        <button class="text-[#939dae] hover:text-[#0E3274] inline-block">Mark all as read</button>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="flex flex-col gap-2">
+        <div class="unread flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-mark-webber.webp" alt="mark webber">
+          <div>
+            <div class="flex items-center gap-2">
+              <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Mark
+                  Webber</strong> <br class="sm:hidden"> reacted to your recent post <strong
+                  class="text-[#5e6778] cursor-pointer hover:text-[#0E3274]">My first tournament today!</strong></p>
+              <span class="hidden w-2 h-2 bg-red-400 rounded-full md:block"></span>
+            </div>
+            <p class="text-[#939dae]">1m ago</p>
+          </div>
+        </div>
+
+        <div class="unread flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-angela-gray.webp" alt="angela gray">
+          <div>
+            <div class="flex items-center gap-2">
+              <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Angela
+                  Gray</strong> followed you
+              </p>
+              <span class="hidden w-2 h-2 bg-red-400 rounded-full md:block"></span>
+            </div>
+            <p class="text-[#939dae]">5m ago</p>
+          </div>
+        </div>
+
+        <div class="unread flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-jacob-thompson.webp" alt="jacob thompson">
+          <div>
+            <div class="flex items-center gap-2">
+              <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Jacob
+                  Thompson</strong> <br class="md:hidden"> has joined your group <strong
+                  class="text-[#5e6778] cursor-pointer hover:text-[#0E3274]">Chess Club</strong></p>
+              <span class="hidden w-2 h-2 bg-red-400 rounded-full md:block"></span>
+            </div>
+            <p class="text-[#939dae]">1day ago</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-rizky-hasanuddin.webp" alt="rizky hasanuddin">
+          <div>
+            <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Rizky
+                Hasanuddin</strong> sent you a
+              private message </p>
+            <p class="text-[#939dae]">5 days ago</p>
+            <p class="p-4 border mt-4 text-[#939dae] cursor-pointer hover:unread rounded">
+              Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and i'm already having
+              lots of fun and improving my game.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-kimberly-smith.webp" alt="kimberly smith">
+
+          <div>
+            <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Kimberly
+                Smith</strong> commented on your picture</p>
+            <p class="text-[#939dae]">1 week ago</p>
+          </div>
+
+          <img class="hidden md:block w-16 h-16 ml-auto" src="./public/image-chess.webp" alt="image of chess">
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-nathan-peterson.webp" alt="Nathan Peterson">
+          <div>
+            <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Nathan
+                Peterson</strong> reacted to
+              your recent post <strong class="text-[#5e6778] cursor-pointer hover:text-[#0E3274]">5 end-game strategies
+                to increase your win
+                rate</strong></p>
+
+            <p class="text-[#939dae]">2 weeks ago</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded shadow-sm">
+          <img class="w-16 h-16" src="./public/avatar-anna-kim.webp" alt="anna kim">
+          <div>
+            <p class="text-[#939dae]"><strong class="text-[#1c202b] cursor-pointer hover:text-[#0E3274]">Anna
+                Kim</strong> <br class="md:hidden"> left the group <strong
+                class="text-[#5e6778] cursor-pointer hover:text-[#0E3274]">Chess Club</strong></p>
+            <p class="text-[#939dae]">2 weeks ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>
