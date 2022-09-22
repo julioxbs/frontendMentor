@@ -6,6 +6,9 @@
 // Change branch
 - git checkout "name of branch"
 
+// Push to branch
+- git push -u "name of branch"
+
 // Delete branch locally
 - git branch -D "name of branch"
 
