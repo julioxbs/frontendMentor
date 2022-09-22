@@ -13,7 +13,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://julioxbs.github.io/frontendMentor/notifications/)
+- Live Site URL: [My project](https://julioxbs.github.io/frontendMentor/notifications/)
 
 ## My process
 
