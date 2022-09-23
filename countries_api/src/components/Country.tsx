@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 type countryTypes = {
     name: string;
     population: number;
@@ -8,7 +10,7 @@ type countryTypes = {
 
 export function Country({name, population, region, capital, flag}: countryTypes) {
     return (
-        <a href="#" className="dark:bg-[#2B3743] outline-gray-300 shadow-md rounded overflow-auto">
+        <Link to={`/country/${name.toLocaleLowerCase()}`} className="dark:bg-[#2B3743] outline-gray-300 shadow-md rounded overflow-auto">
             <div className="h-[150px]">
                 <img className="object-cover w-full h-full block" 
                 src={flag} 
@@ -21,6 +23,6 @@ export function Country({name, population, region, capital, flag}: countryTypes)
                 <p><strong>Region:</strong> {region}</p>
                 <p><strong>Capital:</strong> {capital}</p>
             </div>
-        </a>
+        </Link>
     );
 }

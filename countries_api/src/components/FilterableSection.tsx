@@ -25,6 +25,7 @@ export function FilterableSection() {
     function setResponseData() {
         getRandomCountries().then(data => {
             setRandomCountries(data)
+            console.log(data)
         });
     }
 
@@ -76,7 +77,8 @@ export function FilterableSection() {
                                         capital={country.capital}
                                         population={country.population}
                                         region={country.region}
-                                        flag={country.flags.svg} />
+                                        flag={country.flags.svg}
+                                        />
                                 )
                             })}
                         </div>
