@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FilterableSection } from "./components/FilterableSection";
 import { Navigation } from "./components/Navigation";
 import { themeContext } from "./context/theme";
 
@@ -17,8 +18,9 @@ export function App() {
 
   return (
     <themeContext.Provider value={{ theme, setTheme }}>
-      <div className="dark:bg-[#202D36] dark:text-[#FBFCFC] w-full h-screen">
+      <div className="dark:bg-[#202D36] dark:text-[#FBFCFC] w-full min-h-screen">
         <Navigation />
+        <FilterableSection />
       </div>
     </themeContext.Provider>
   );
