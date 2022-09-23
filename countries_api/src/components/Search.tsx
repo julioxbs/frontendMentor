@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { searchForCountry } from "../api/api";
 
 type Inputs = {
     search: string;
@@ -12,18 +13,22 @@ type searchTypes = {
     searchField: string;
     setSelectField: (selectField: string) => void;
     setSearchField: (searchField: string) => void;
+    setResult: (searchField: string) => void;
 }
 
-export function Search({ setSearchField, searchField, setSelectField, selectField }: searchTypes) {
+export function Search({ setSearchField, searchField, setSelectField, selectField, setResult }: searchTypes) {
     const { register, handleSubmit} = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => data;
+    const onSubmit: SubmitHandler<Inputs> = (data, e) => {
+        searchForCountry(data.search)
+        .then(country => setResult(country))
+    };
 
     return (
-        <form className='mt-16 px-16' onSubmit={handleSubmit(onSubmit)}>
+        <form className='mt-16' onSubmit={handleSubmit(onSubmit)}>
             <div className="flex md:flex-row flex-col gap-2 md:items-center justify-between  container">
                 <div className='md:w-[450px] w-full shadow-md'>
-                    <div className={`flex items-center py-4 px-6 gap-2 dark:bg-[#2B3743] rounded`}>
+                    <div className={`flex items-center py-4 px-6 gap-4 dark:bg-[#2B3743] rounded`}>
                         <FontAwesomeIcon className='text-xl' icon={faMagnifyingGlass} />
                         <input value={searchField} onInput={(e) => setSearchField((e.target as HTMLInputElement).value)} {...register('search')} type="search" className='bg-transparent border-none outline-none dark:text-white w-full placeholder:font-semibold dark:placeholder:text-white' placeholder='Search for a countries...' />
                     </div>

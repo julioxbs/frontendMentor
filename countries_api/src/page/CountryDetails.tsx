@@ -1,10 +1,10 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { faCircleChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { RootObject } from "../types/countriesTypes";
+import axios from "axios";
 
 export function CountryDetails() {
     const [country, setCountry] = useState<RootObject[]>([]);
@@ -24,7 +24,7 @@ export function CountryDetails() {
         }
     }, [])
 
-    function getNativeName(names: {[key: string]: any}): string {
+    function getNativeName(names: { [key: string]: any }): string {
         let totalNames: {
             official: string;
             common: string;
@@ -35,7 +35,7 @@ export function CountryDetails() {
         return totalNames[0].common
     };
 
-    function getCurrencies(currencies: {[key: string]: any}): string {
+    function getCurrencies(currencies: { [key: string]: any }): string {
         let totalCurrencies: {
             name: string;
             symbol: string
@@ -46,7 +46,7 @@ export function CountryDetails() {
         return totalCurrencies[0].name
     };
 
-    function getLanguages(languages: {[key: string]: any}): string {
+    function getLanguages(languages: { [key: string]: any }): string {
         let totalLanguages: string[] = [];
         Object.entries(languages).forEach(([key, value]) => {
             totalLanguages.push(languages[key])

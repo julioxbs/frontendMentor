@@ -7,7 +7,7 @@ export async function getRandomCountries() {
     return response;
 };
 
-export async function searchCountry(country: string) {
+export async function searchForCountry(country: string) {
     const response = await axios.get(`https://restcountries.com/v3.1/name/${country}`)
         .then(res => res.data)
         .catch((reason: AxiosError) => 'error');

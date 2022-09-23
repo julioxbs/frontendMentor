@@ -1,6 +1,5 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FilterableSection } from "./components/FilterableSection";
 import { Navigation } from "./components/Navigation";
 import { themeContext } from "./context/theme";
 
