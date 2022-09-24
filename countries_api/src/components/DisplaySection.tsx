@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { getRandomCountries, searchForRegion } from "../api/api";
+import { getAllCountries, searchForRegion } from "../api/api";
 import { RootObject } from "../types/countriesTypes";
 import { Country } from "./Country";
 import { Search } from "./Search";
 
-export function FilterableSection() {
+export function DisplaySection() {
     const [result, setResult] = useState<RootObject[] | string>([]);
     const [searchField, setSearchField] = useState<string>('');
     const [selectField, setSelectField] = useState<string>('');
 
     function setResponseData() {
-        getRandomCountries().then(data => {setResult(data)});
+        getAllCountries().then(data => {setResult(data)});
     }
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export function FilterableSection() {
                         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
                             {result.map((country, index) => {
                                 return (
-                                    /*// @ts-ignore missing props */
+                                    /*// @ts-ignore */
                                     <Country
                                         key={index}
                                         name={country.name}
@@ -58,6 +58,7 @@ export function FilterableSection() {
                                         population={country.population}
                                         region={country.region}
                                         flags={country.flags}
+                                        cca3={country.cca3}
                                     />
                                 )
                             })}

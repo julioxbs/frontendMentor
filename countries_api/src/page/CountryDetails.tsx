@@ -5,59 +5,29 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { RootObject } from "../types/countriesTypes";
 import axios from "axios";
+import { getNativeName, getCurrencies, getLanguages } from '../utils/utilsFunctions';
 
 export function CountryDetails() {
     const [country, setCountry] = useState<RootObject[]>([]);
     const { name } = useParams<string>();
 
     async function getCountry(name: string) {
-        const res = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
-        return res;
+        const res = await axios.get(`https://restcountries.com/v3.1/alpha/${name}`);
+        return res.data;
     }
 
     useEffect(() => {
         if (name) {
             getCountry(name).then(data => {
-                setCountry(data.data);
-                console.log(country)
+                setCountry(data);
             })
         }
-    }, [])
-
-    function getNativeName(names: { [key: string]: any }): string {
-        let totalNames: {
-            official: string;
-            common: string;
-        }[] = [];
-        Object.entries(names).forEach(([key, value]) => {
-            totalNames.push(names[key]);
-        })
-        return totalNames[0].common
-    };
-
-    function getCurrencies(currencies: { [key: string]: any }): string {
-        let totalCurrencies: {
-            name: string;
-            symbol: string
-        }[] = [];
-        Object.entries(currencies).forEach(([key, value]) => {
-            totalCurrencies.push(currencies[key])
-        })
-        return totalCurrencies[0].name
-    };
-
-    function getLanguages(languages: { [key: string]: any }): string {
-        let totalLanguages: string[] = [];
-        Object.entries(languages).forEach(([key, value]) => {
-            totalLanguages.push(languages[key])
-        })
-        return totalLanguages.join(', ')
-    }
+    }, [name])
 
     return (
         <section className="container mx-auto px-16 mt-16 min-h-screen pb-4">
             <button>
-                <Link to={'/'} className="shadow-md px-6 py-1 dark:bg-[#2B3743] flex items-center gap-2">
+                <Link to={'/'} className="shadow-md px-6 py-1 darkmode_components flex items-center gap-2">
                     <FontAwesomeIcon className="text-xl" icon={faCircleChevronLeft} />
                     Back
                 </Link>
@@ -77,7 +47,7 @@ export function CountryDetails() {
                                 <div className="grid md:grid-cols-2 grid-cols-1">
                                     <ul className="flex flex-col gap-2">
                                         <li><strong>Native Name: </strong>{info.name.nativeName && getNativeName(info.name.nativeName)}</li>
-                                        <li><strong>Population: </strong>{info.population}</li>
+                                        <li><strong>Population: </strong>{info.population.toLocaleString()}</li>
                                         <li><strong>Region: </strong>{info.region}</li>
                                         <li><strong>Sub Region: </strong>{info.subregion}</li>
                                         <li><strong>Capital: </strong>{info.capital}</li>
@@ -90,9 +60,9 @@ export function CountryDetails() {
                                     </ul>
                                 </div>
 
-                                <div className="mt-16 flex items-center flex-wrap gap-3">
+                                <div className={`mt-16 flex items-center flex-wrap gap-3 ${info.borders ?? 'hidden'}`}>
                                     <p><strong>Border Countries: </strong></p>
-                                    {info.borders?.map(val => <button className="shadow-md px-6 py-1 dark:bg-[#2B3743]">{val}</button>)}
+                                    {info.borders && info.borders?.map(country => <Link to={`/country/${country}`} className="shadow-md px-6 py-1 darkmode_components">{country}</Link>)}
                                 </div>
                             </div>
                         </div>

@@ -18,7 +18,7 @@ export function App() {
 
   return (
     <themeContext.Provider value={{ theme, setTheme }}>
-      <div className="dark:bg-[#202D36] dark:text-[#FBFCFC] w-full min-h-screen">
+      <div className="darkmode_body w-full min-h-screen">
         <Navigation />
         <Outlet />
       </div>

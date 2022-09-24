@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .darkmode_body {
+        @apply dark:bg-[#202D36] dark:text-[#FBFCFC]
+    }
+}
+
+@layer components {
+    .darkmode_components {
+        @apply dark:bg-[#2B3743]
+    }
+
+    .acessibility_outline {
+        @apply outline-gray-300
+    }
+}

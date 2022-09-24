@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import { RootObject } from "../types/countriesTypes";
 
-export function Country({ name, population, region, capital, flags }: RootObject) {
+export function Country({ name, population, region, capital, flags, cca3 }: RootObject) {
     return (
-        <Link to={`/country/${name.common.toLocaleLowerCase()}`} className="dark:bg-[#2B3743] outline-gray-300 shadow-md rounded overflow-auto">
+        <Link to={`/country/${cca3}`} className="darkmode_components acessibility_outline md:shadow-xl shadow-md rounded overflow-auto">
             <div className="h-[150px]">
                 <img className="object-cover w-full h-full block" 
                 src={flags.svg} 

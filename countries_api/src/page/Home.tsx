@@ -1,7 +1,7 @@
-import { FilterableSection } from "../components/FilterableSection";
+import { DisplaySection } from "../components/DisplaySection";
 
 export function Home() {
     return (
-        <FilterableSection />
+        <DisplaySection />
     );
 }

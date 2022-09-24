@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios"
 
-export async function getRandomCountries() {
+export async function getAllCountries() {
     const response = await axios.get(`https://restcountries.com/v3.1/all`)
         .then(res => res.data.splice(0, 8))
         .catch((reason: AxiosError) => 'error');
