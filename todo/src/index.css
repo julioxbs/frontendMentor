@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-gradient {
+    background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+@layer utilities {
+    .bg-dark {
+        @apply bg-[#25273C]
+    }
+}
+
+:root {
+    -Very-Light-Gray: #fafafa;
+    -Very-Light-Grayish-Blue: #e4e5f1;
+    /* active */
+    -Light-Grayish-Blue: #d2d3db; 
+    -Dark-Grayish-Blue: #9394a5;
+    -Very-Dark-Grayish-Blue: #484b6a;
+
+    --Very-Dark-Blue: #161722;
+    --Very-Dark-Desaturated-Blue: #25273c;
+    --Light-Grayish-Blue: #cacde8;
+    --Light-Grayish-Blue: #e4e5f1;
+    --Dark-Grayish-Blue: #777a92;
+    --Very-Dark-Grayish-Blue: #4d5066;
+    --Very-Dark-Grayish-Blue: #393a4c;
+}
