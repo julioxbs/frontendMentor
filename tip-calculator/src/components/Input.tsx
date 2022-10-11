@@ -14,7 +14,7 @@ interface InputProps {
 }
 
 export function Input({ setResult, setValues, values }: InputProps) {
-  const [errorMessage, setError] = useState<boolean>(false);
+  const [errorMessage, setError] = useState<string>("");
 
   function getValuesFromInput(e: any) {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -23,11 +23,15 @@ export function Input({ setResult, setValues, values }: InputProps) {
   useEffect(() => {
     const { bill, people, tip } = values;
 
-    if (bill && people && tip) {
-      const billPerPerson = Number(bill) / Number(people);
-      const tipPerPerson = billPerPerson * (Number(tip) / 100);
-      const totalBill = billPerPerson + tipPerPerson;
-      setResult([{ "Tip Amount": tipPerPerson, Total: totalBill }]);
+    if (bill && tip && people) {
+      if (parseInt(people) === Number(people)) {
+        const billPerPerson = Number(bill) / parseInt(people);
+        const tipPerPerson = billPerPerson * (Number(tip) / 100);
+        const totalBill = billPerPerson + tipPerPerson;
+        setResult([{ "Tip Amount": tipPerPerson, Total: totalBill }]);
+      } else {
+        setError("Can't be float number");
+      }
     }
   }, [values]);
 
@@ -87,12 +91,12 @@ export function Input({ setResult, setValues, values }: InputProps) {
 
       <label className="flex flex-col gap-2 text-[#65797A]">
         <p className="flex justify-between">
-          Number of People{" "}
+          Number of People
           <span
             data-test="errorMessage"
             className={errorMessage ? "block text-red-500" : "hidden"}
           >
-            Can't be zero
+            {errorMessage}
           </span>
         </p>
 
@@ -116,9 +120,9 @@ export function Input({ setResult, setValues, values }: InputProps) {
 
               if (Number(target.value) > 0 || target.value === "") {
                 getValuesFromInput(e);
-                setError(false);
+                setError("");
               } else {
-                setError(true);
+                setError("Can't be zero");
               }
             }}
           />
