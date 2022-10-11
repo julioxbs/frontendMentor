@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@layer components {
+    .buttonStyle {
+        @apply text-white p-1 rounded-md text-xl w-full hover:bg-[#26c0ab] transition
+    }
+
+    .inputStyle {
+        @apply shadow py-1 px-2 md:text-xl bg-[#F3F8FB] text-[#00494d] placeholder:text-end w-full focus:border-[#26c0ab] border-transparent  border-2 outline-none text-end
+    }
+}
+
+@layer utilities {
+    .bg-body {
+        @apply bg-[#c5e4e7]
+    }
+
+    .colorTitle {
+        @apply text-[#00494d]
+    }
+
+    .active {
+        @apply bg-[#26C2AD]
+    }
+
+    .noActive {
+        @apply bg-[#00494d]
+    }
+
+    .resetBtn {
+        @apply hover:bg-[#c5e4e7] bg-[#26C2AD] w-full py-2 rounded text-[#045D63] mt-5 transition
+    }
+}
