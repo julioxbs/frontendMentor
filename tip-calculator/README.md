@@ -26,11 +26,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](./src/assets/screenshot.png);
+![](./src/assets/screenshot.png)
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://tip-calculator0.netlify.app/)
 
 ## My process
 
