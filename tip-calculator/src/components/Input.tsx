@@ -33,9 +33,9 @@ export function Input({ setResult, setValues, values }: InputProps) {
 
   return (
     <div className="flex flex-col gap-12">
-      <label className="flex flex-col gap-2 text-[#65797A]">
-        Bill
-        <div className="relative">
+      <div>
+        <label className="relative text-[#65797A]">
+          <span className="block mb-2">Bill</span>
           <input
             data-test="bill"
             name="bill"
@@ -46,12 +46,12 @@ export function Input({ setResult, setValues, values }: InputProps) {
             onInput={(e) => getValuesFromInput(e)}
           />
           <img
-            className="absolute top-[15px] left-2"
+            className="absolute top-[44px] left-2"
             src={dolarIcon}
             alt="dolar icon"
           />
-        </div>
-      </label>
+        </label>
+      </div>
 
       <div>
         <p className="mb-4 text-[#65797A]">Select Tip %</p>
@@ -64,7 +64,6 @@ export function Input({ setResult, setValues, values }: InputProps) {
           {tipValues.map((tip, index) => (
             <ToggleGroup.Item
               key={index}
-              id="test"
               data-test={tip}
               value={tip}
               className={`buttonStyle ${
@@ -89,7 +88,10 @@ export function Input({ setResult, setValues, values }: InputProps) {
       <label className="flex flex-col gap-2 text-[#65797A]">
         <p className="flex justify-between">
           Number of People{" "}
-          <span data-test="errorMessage" className={errorMessage ? "block text-red-500" : "hidden"}>
+          <span
+            data-test="errorMessage"
+            className={errorMessage ? "block text-red-500" : "hidden"}
+          >
             Can't be zero
           </span>
         </p>
