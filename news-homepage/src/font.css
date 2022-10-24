@@ -1,0 +1,13 @@
+body {
+    font-family: 'Inter', sans-serif !important;
+}
+
+:root {
+    --cl-orange: #e9ab53;
+    --cl-red: #f15e50;
+    --cl-Off-white: #fffdfa;
+    --cl-Grayish-blue: #c5c6ce;
+    --cl-Dark-grayish-blue: #5d5f79;
+    --cl-Very-dark-blue: #00001a;
+}
+
